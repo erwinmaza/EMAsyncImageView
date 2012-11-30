@@ -1,5 +1,4 @@
-EMAsyncImageView
-================
+# EMAsyncImageView
 
 Yet another asynchronous, web-enabled, internet-friendly, download-and-cache UIImageView subclass.
 
@@ -11,23 +10,21 @@ A sample app is included.
 
 Feedback is welcome!
 
-Installation:
--------------
+### Installation:
 
 1. Copy the 2 files in the EMAsyncImageView folder, named (shockingly enough)
 
-	EMAsyncImageView.h
-	EMAsyncImageView.m
+	* EMAsyncImageView.h
+	* EMAsyncImageView.m
 
 2. Add this line to any class header or implementation file where you reference an EMAsyncImageView
 
-	#import "EMAsyncImageView.h"
+	* #import "EMAsyncImageView.h"
 
 or, for convenience's sake, add that line to your [project]-Prefix.pch file
 
 
-Example usage:
---------------
+### Example usage:
 
 In a UICollectionView:
 
@@ -48,10 +45,42 @@ where GalleryCell.h contains:
 	@property (weak, nonatomic) IBOutlet EMAsyncImageView 	*picView;
 
 	@end
+	
+### Sample App
+
+You'll need to download this entire repo for the sample app to work, as the EMAsyncImageView.xcodeproj references both the EMAsyncImageView and Sample_App top level folders (plus the snazzy 30-minute-photoshop-hack app icons).
+
+### Usage notes:
+
+The following is noted in EMAsyncImageView.h:
+
+* Setting the imageUrl or imageId properties will immediately start the 
+download or fetch the cached image from the file system.
+
+* Set the imageId property if you already have it. Otherwise, setting the 
+imageUrl property will attempt to generate the imageId from the url, 
+for caching purposes.
+
+* EMAsyncImageView can process both full static urls to images, 
+or query urls to retrieve images based on an image id parameter.
+
+	If the url is a query of the form:
+
+		http://domain.com/api/getImage?userid=abc&arbritraryidkey=123
+	
+	them specifying the imageIdKey property (to "arbritraryidkey" in this example) 
+	will enable caching of the image to the file system.
+
+* If imageIdKey is not set, the image will be downloaded upon every request.
+
+* But wait! If the parameter name happens to be "imageId", and imageIdKey is not set,
+then that will still cache the image. Convention over configuration, as it were.
+
+* And yet, go head and change the defaultImageIdKey #define below to set your own convention.
+Sigh.
 
 
-LICENSE
-=======
+# LICENSE
 
 Copyright (c) 2012 eMaza Mobile. All rights reserved.
 
