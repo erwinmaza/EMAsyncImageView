@@ -80,7 +80,7 @@ then that will still cache the image. Convention over configuration, as it were.
 Sigh.
 
 
-# LICENSE
+## LICENSE
 
 Copyright (c) 2012 eMaza Mobile. All rights reserved.
 
