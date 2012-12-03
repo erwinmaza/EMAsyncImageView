@@ -7,17 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA01B325166CFDAE00C85B9C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AA01B324166CFDAE00C85B9C /* Default-568h@2x.png */; };
 		AA24CAF3165C10160087078E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24CAF2165C10160087078E /* UIKit.framework */; };
 		AA24CAF5165C101F0087078E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24CAF4165C101F0087078E /* Foundation.framework */; };
 		AA24CAF7165C10290087078E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA24CAF6165C10290087078E /* CoreGraphics.framework */; };
 		AA896AD5166517C8005F8354 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA896AD4166517C8005F8354 /* RootViewController.m */; };
-		AACDA95B16691F7A00A86932 /* 57_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AACDA95916691F7A00A86932 /* 57_app_icon.png */; };
-		AACDA95C16691F7A00A86932 /* 114_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AACDA95A16691F7A00A86932 /* 114_app_icon.png */; };
 		AACDA95E16691FA900A86932 /* 57_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AACDA95D16691FA900A86932 /* 57_app_icon.png */; };
 		AACDA96016691FB100A86932 /* 114_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AACDA95F16691FB100A86932 /* 114_app_icon.png */; };
 		AAEF36EC1663CCC7009E93C9 /* EMAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF36DA1663CCC7009E93C9 /* EMAsyncImageView.m */; };
 		AAEF36ED1663CCC7009E93C9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF36DD1663CCC7009E93C9 /* AppDelegate.m */; };
-		AAEF36F11663CCC7009E93C9 /* EMAsyncImageView-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AAEF36E11663CCC7009E93C9 /* EMAsyncImageView-Info.plist */; };
 		AAEF36F21663CCC7009E93C9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAEF36E31663CCC7009E93C9 /* InfoPlist.strings */; };
 		AAEF36F31663CCC7009E93C9 /* GalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF36E61663CCC7009E93C9 /* GalleryCell.m */; };
 		AAEF36F41663CCC7009E93C9 /* GalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AAEF36E71663CCC7009E93C9 /* GalleryCell.xib */; };
@@ -26,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA01B324166CFDAE00C85B9C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		AA24CAF2165C10160087078E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		AA24CAF4165C101F0087078E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		AA24CAF6165C10290087078E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
@@ -78,6 +77,7 @@
 		AADEDBDA16482233001E4357 = {
 			isa = PBXGroup;
 			children = (
+				AA01B324166CFDAE00C85B9C /* Default-568h@2x.png */,
 				AACDA95F16691FB100A86932 /* 114_app_icon.png */,
 				AACDA95D16691FA900A86932 /* 57_app_icon.png */,
 				AAEF36D81663CCC7009E93C9 /* EMAsyncImageView */,
@@ -183,13 +183,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAEF36F11663CCC7009E93C9 /* EMAsyncImageView-Info.plist in Resources */,
 				AAEF36F21663CCC7009E93C9 /* InfoPlist.strings in Resources */,
 				AAEF36F41663CCC7009E93C9 /* GalleryCell.xib in Resources */,
-				AACDA95B16691F7A00A86932 /* 57_app_icon.png in Resources */,
-				AACDA95C16691F7A00A86932 /* 114_app_icon.png in Resources */,
 				AACDA95E16691FA900A86932 /* 57_app_icon.png in Resources */,
 				AACDA96016691FB100A86932 /* 114_app_icon.png in Resources */,
+				AA01B325166CFDAE00C85B9C /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
