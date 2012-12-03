@@ -154,7 +154,6 @@
 }
 
 - (void)downloadImage {
-	LogMethod
 	[self.superview addSubview:spinner];
 	[spinner startAnimating];
 

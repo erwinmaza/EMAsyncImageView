@@ -33,7 +33,7 @@
 
 @interface RootViewController ()
 
-	@property (nonatomic, strong) NSArray	*picsArray;
+	@property (nonatomic, strong) NSArray	*urlArray;
 
 @end
 
@@ -42,7 +42,7 @@
 	
 }
 
-@synthesize picsArray;
+@synthesize urlArray;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	LogMethod
@@ -115,8 +115,8 @@
 			[tmp addObject:[[item objectForKey:@"media"] objectForKey:@"m"]];
 		}
 		
-		self.picsArray = [NSArray arrayWithArray:tmp];
-		NSLog(@"found %d pictures, will download as needed", [picsArray count]);
+		self.urlArray = [NSArray arrayWithArray:tmp];
+		NSLog(@"found %d pictures, will download as needed", [urlArray count]);
 		
 		[self.collectionView reloadData];
 
@@ -128,14 +128,14 @@
 #pragma mark Collection View Methods
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section { return UIEdgeInsetsMake(10, 10, 10, 10); }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section { return [picsArray count]; }
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section { return [urlArray count]; }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {	return CGSizeMake(140, 140); }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
 	GalleryCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-	cell.picView.imageUrl = [picsArray objectAtIndex:indexPath.row];
+	cell.picView.imageUrl = [urlArray objectAtIndex:indexPath.row];
 	return cell;
 }
 
