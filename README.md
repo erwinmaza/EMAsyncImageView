@@ -12,13 +12,11 @@ Feedback is welcome!
 
 ### Installation:
 
-1 Copy the 2 files in the EMAsyncImageView folder, named (shockingly enough)
+1 Copy the 2 files in the EMAsyncImageView folder and add them to your project:
 
 	* EMAsyncImageView.h
 	* EMAsyncImageView.m
 	
-into your project's file structure wherever it makes sense to you. Don't forget to add the files to your project in xcode.
-
 2 Add this line to any class header or implementation file where you reference an EMAsyncImageView
 
 	* #import "EMAsyncImageView.h"
@@ -82,7 +80,7 @@ then that will still cache the image. Convention over configuration, as it were.
 Sigh.
 
 
-## LICENSE
+## License
 
 Copyright (c) 2012 eMaza Mobile. All rights reserved.
 
