@@ -37,6 +37,8 @@
 	@property (nonatomic, strong) NSString					*filePath;
 	@property (nonatomic, strong) NSString					*imageType;
 
+	@property (nonatomic, assign) BOOL	isInResuableCell;
+
 @end
 
 @implementation EMAsyncImageView {
@@ -44,7 +46,7 @@
 }
 
 @synthesize imageId, imageUrl, imageIdKey, imageSize;
-@synthesize connection, data, spinner, filePath, imageType;
+@synthesize connection, data, spinner, filePath, imageType, isInResuableCell;
 
 
 - (id)initWithFrame:(CGRect)frame {
@@ -87,8 +89,8 @@
 	
 	NSFileManager *fm = [NSFileManager defaultManager];
 	if ([fm fileExistsAtPath:[self filePath]]) {
-		// if we know the image extention, take advantage of iOS image caching
-		if ([imageType length]) {
+		// if we know the image extention, and we're not resuing the imageview in a cell, take advantage of iOS image caching
+		if ([imageType length] && !isInResuableCell) {
 			self.image = [[UIImage alloc] initWithContentsOfFile:[self filePath]];
 		} else {
 			self.image = [UIImage imageWithContentsOfFile:[self filePath]];
@@ -102,12 +104,17 @@
 
 - (void)setImageUrl:(NSString *)url {
 
-	if (!url) return;
+	if (!url) {
+		self.isInResuableCell = TRUE;
+		[connection cancel];
+		imageId = nil;
+		imageUrl = nil;
+		self.filePath = nil;
+		self.image = nil;
+		return;
+	}
 
 	imageUrl = url;
-	imageId = nil;
-	self.filePath = nil;
-	self.image = nil;
 	
 	NSArray *urlParts = [url componentsSeparatedByString:@"?"];
 	
@@ -178,10 +185,13 @@
 - (void)connectionDidFinishLoading:(NSURLConnection*)theConnection {
 	[spinner stopAnimating];
 	self.connection = nil;
-	self.image = [UIImage imageWithData:data];;
-	[self setNeedsLayout];
-
-	if ([imageId length] > 0) [data writeToFile:[self filePath] atomically:TRUE];
+	
+	if ([theConnection.currentRequest.URL.absoluteString isEqualToString:imageUrl]) {
+		self.image = [UIImage imageWithData:data];;
+		[self setNeedsLayout];
+		
+		if ([imageId length] > 0) [data writeToFile:[self filePath] atomically:TRUE];
+	}
 
 	self.data = nil;
 }

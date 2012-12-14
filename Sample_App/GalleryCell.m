@@ -51,4 +51,9 @@
 	return self;
 }
 
+- (void)prepareForReuse {
+	[super prepareForReuse];
+	picView.imageUrl = nil;
+}
+
 @end

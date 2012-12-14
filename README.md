@@ -46,6 +46,13 @@ where GalleryCell.h contains:
 
 	@end
 	
+If this view is contained in a reusable cell, such as in a UITableView or UICollectionView, add:
+
+	- (void)prepareForReuse {
+		[super prepareForReuse];
+		picView.imageUrl = nil;
+	}
+	
 ### Sample App
 
 You'll need to download this entire repo for the sample app to work, as the EMAsyncImageView.xcodeproj references both the EMAsyncImageView and Sample_App top level folders (plus the snazzy 30-minute-photoshop-hack app icons).
@@ -60,6 +67,22 @@ download or fetch the cached image from the file system.
 * Set the imageId property if you already have it. Otherwise, setting the 
 imageUrl property will attempt to generate the imageId from the url, 
 for caching purposes.
+
+
+* If using this class in a resuable cell, such as UICollectionViewCell or UITableViewCell,
+it is highly recommended to set imageUrl to nil in -prepareForReuse:
+
+	- (void)prepareForReuse {
+		[super prepareForReuse];
+		picView.imageUrl = nil;
+	}
+
+	> Special thanks to Illya Busigin (illyabusigin) and Jason Pepas (cellularmitosis)
+	for this and other great tweaks.
+
+* Note that setting imageUrl to nil signals that the view is being used in a reusable cell, 
+and so will not use iOS image caching (file system cache still works though).
+
 
 * EMAsyncImageView can process both full static urls to images, 
 or query urls to retrieve images based on an image id parameter.

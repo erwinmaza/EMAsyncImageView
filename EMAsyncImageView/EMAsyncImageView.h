@@ -32,11 +32,27 @@
 	Setting the imageUrl or imageId properties will immediately start the 
 	download or fetch the cached image from the file system.
 	
-	Set the imageId property if you already have it. Otherwise, setting the 
+	Set the imageId property if you already have it. Otherwise, setting the
 	imageUrl property will attempt to generate the imageId from the url, 
 	for caching purposes.
 
-	EMAsyncImageView can process both full static urls to images, 
+
+	If using this class in a resuable cell, such as UICollectionViewCell or UITableViewCell,
+	it is highly recommended to set imageUrl to nil in -prepareForReuse:
+
+	- (void)prepareForReuse {
+		[super prepareForReuse];
+		picView.imageUrl = nil;
+	}
+	
+		>> Special thanks to Illya Busigin (illyabusigin) and Jason Pepas (cellularmitosis)
+		for this and other great tweaks.
+	
+	Note that setting imageUrl to nil signals that the view is being used in a reusable cell, 
+	and so will not use iOS image caching (file system cache still works though).
+ 
+
+	EMAsyncImageView can process both full static urls to images,
 	or query urls to retrieve images based on an image id parameter.
 	
 	If the url is a query of the form:
